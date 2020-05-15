@@ -9,11 +9,9 @@ void MyGammaCorrection(Mat& src, Mat& dst, float fGamma)
 {
 	CV_Assert(src.data);
 
-	// accept only uchar type matrices,when use CV_8UC1 or CV_8UC3,src.depth()==0
-	//sizeof(uchar)==1   
 	CV_Assert(src.depth() != sizeof(uchar));
 
-	// build look up table  
+	// 建立查询数组
 	unsigned char lut[256];
 	for (int i = 0; i < 256; i++)
 	{
